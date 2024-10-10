@@ -1,0 +1,18 @@
+@Api_HostAddress = https://localhost:7008
+
+### Imports get status of bus listener
+
+GET {{Api_HostAddress}}/api/imports
+Accept: application/json
+
+### Import races and race results from file
+
+POST {{Api_HostAddress}}/api/imports
+Content-Type: application/json
+
+### Import sprint results from file
+
+POST {{Api_HostAddress}}/api/imports?sprint=true
+Content-Type: application/json
+
+###
