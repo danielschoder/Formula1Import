@@ -1,0 +1,59 @@
+@Api_HostAddress = https://localhost:7008
+
+### Imports
+
+GET {{Api_HostAddress}}/api/imports
+Accept: application/json
+
+
+
+
+
+
+### Circuits
+
+POST {{Api_HostAddress}}/api/circuits
+Content-Type: application/json
+
+### Constructors
+
+POST {{Api_HostAddress}}/api/constructors
+Content-Type: application/json
+{
+  "fromYear": 2024,
+  "toYear": 9999
+}
+
+### Drivers
+
+POST {{Api_HostAddress}}/api/drivers
+Content-Type: application/json
+{
+  "fromYear": 2024,
+  "toYear": 9999
+}
+
+### GrandPrix
+
+POST {{Api_HostAddress}}/api/grandprix
+Content-Type: application/json
+{
+  "fromYear": 1950,
+  "toYear": 1959
+}
+
+### Races
+
+POST {{Api_HostAddress}}/api/races
+Content-Type: application/json
+{
+  "fromYear": 2023,
+  "toYear": 9999
+}
+
+### Seasons
+
+POST {{Api_HostAddress}}/api/seasons
+Content-Type: application/json
+
+###

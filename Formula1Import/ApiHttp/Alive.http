@@ -1,0 +1,11 @@
+﻿@Api_HostAddress = https://localhost:7008
+
+### Alive
+
+GET {{Api_HostAddress}}/api
+Accept: application/json
+
+### Error
+
+GET {{Api_HostAddress}}/error
+Accept: application/json
