@@ -7,8 +7,6 @@ using Formula1Import.Infrastructure.Middlewares;
 using Formula1Import.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Http.Json;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.OpenApi.Models;
-using Scalar.AspNetCore;
 using System.Text.Json.Serialization;
 
 #region Services
@@ -16,10 +14,6 @@ using System.Text.Json.Serialization;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(options =>
-{
-    options.SwaggerDoc("v1", new OpenApiInfo { Title = "Formula 1 Import API Reference", Version = "1.0" });
-});
 
 builder.Services.Configure<JsonOptions>(options =>
 {
@@ -41,18 +35,6 @@ var app = builder.Build();
 
 app.UseMiddleware<GlobalHttpRequestMiddleware>();
 app.UseMiddleware<GlobalExceptionHandlerMiddleware>();
-
-app.UseSwagger(options =>
-{
-    options.RouteTemplate = "openapi/{documentName}.json";
-});
-app.MapScalarApiReference(options =>
-{
-    options
-        .WithTitle("Formula 1 Import API Reference")
-        .WithSidebar(false)
-        .WithDefaultHttpClient(ScalarTarget.CSharp, ScalarClient.HttpClient);
-});
 
 app.MapAliveEndpoints();
 app.MapImportsEndpoints();
